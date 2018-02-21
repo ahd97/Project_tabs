@@ -1,0 +1,80 @@
+<!--
+  Generated template for the SignUpPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>sign_up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form>
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>User Name</ion-label>
+        <ion-input type="text" name="user_name" id="user_name" [(ngModel)]="user_name" placeholder="User Name"></ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Security Question</ion-label>
+        <ion-select name="security_q" id="security_q" [(ngModel)]="security_q">
+          <ion-option>Pet's Name</ion-option>
+          <ion-option>Favourite Comic Hero</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Security Answer</ion-label>
+        <ion-input type="text" name="security_a" id="security_a" [(ngModel)]="security_a" placeholder="Security Answer">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input type="number" name="ph_no" id="ph_no" [(ngModel)]="ph_no" placeholder="Phone Number">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>E-Mail</ion-label>
+        <ion-input type="email" name="e_mail" id="e_mail" [(ngModel)]="e_mail" placeholder="E-Mail">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" name="first_name" id="first_name" [(ngModel)]="first_name" placeholder="First Name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" name="last_name" id="last_name" [(ngModel)]="last_name" placeholder="Last Name">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input type="text" name="address" id="address" [(ngModel)]="address" placeholder="Address">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>DOB</ion-label>
+        <ion-input type="text" name="dob" id="dob" [(ngModel)]="dob" placeholder="DOB">
+        </ion-input>
+      </ion-item>
+      <button ion-button color="light" (click)="onAdd()">Submit</button>
+    </ion-list>
+  </form>
+
+</ion-content>

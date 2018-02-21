@@ -6,12 +6,51 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding>
+  <div>
+      <ion-label>Feedback</ion-label>
+      <textarea></textarea>
+  </div>
+  <button ion-button color="primary">Submit</button>
+  <ion-card>
+
+      <img src="">
+      <ion-fab right top>
+        <button ion-fab>
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+      <ion-item>
+          <span item-left>18 min</span>
+          <span item-left>(2.6 mi)</span>
+          <button ion-button icon-left clear item-end>
+            <ion-icon name="navigate"></ion-icon>
+            Start
+          </button>
+        </ion-item>
+      <ion-item>
+        <ion-icon name="home" item-start large></ion-icon>
+        <h2>Office</h2>
+        <p>11 N. Way St, Madison, WI 53703</p>
+      </ion-item>
+    
+      <ion-item>
+        <ion-icon name="call" item-left large ></ion-icon>
+        <h2>Contact</h2>
+        <p>9825615516</p>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="person" item-left large ></ion-icon>
+          <h2>Owner</h2>
+          <p>Mahesh Patel</p>
+        </ion-item>
+      
+        <ion-item>
+            <ion-icon name="mail" item-left large ></ion-icon>
+            <h2>E-mail</h2>
+            <p>abc_1987@gmail.com</p>
+          </ion-item>
+    
+    </ion-card>
 </ion-content>
