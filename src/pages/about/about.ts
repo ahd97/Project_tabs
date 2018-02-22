@@ -9,6 +9,8 @@ import { UserMaster } from '../../Model/User';
 import { Cart_detail } from '../../Model/Cart_detail';
 import { UserDataProvider } from '../../providers/user-data/user-data';
 import { CartDetailDataProvider } from '../../providers/cart-detail-data/cart-detail-data';
+import { SalesOrder } from '../../Model/Sales_order';
+import { SalesOrderDataProvider } from '../../providers/sales-order-data/sales-order-data';
 import { Subscription } from 'rxjs/Rx';
 @Component({
   selector: 'page-about',
@@ -74,11 +76,12 @@ function(){
   onUpdate(){
     this.cartDetail1=new Cart_detail(this.cart_id,this.Product_id,this.qty);
     console.log(this.qty);
-    this._cartDetail.updateCart_detail(this.id,this.qty).subscribe(
+    this._cartDetail.updateCart_detail(this.cart_id,this.Product_id,this.cartDetail1).subscribe(
       (data:any)=>{
           console.log(data);
       }
     );
+
   }
   getAllProduct(){
     this._data.getAllProduct().subscribe(
