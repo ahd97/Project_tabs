@@ -4,6 +4,7 @@ import { ProductDataProvider } from '../../providers/product-data/product-data';
 import { Product } from '../../Model/Product';
 import { Subscription } from 'rxjs/Rx';
 import { ProductPage } from '../product/product';
+import { LogInPage } from '../log-in/log-in';
 /**
  * Generated class for the ProductByCategoryPage page.
  *
@@ -43,5 +44,10 @@ export class ProductByCategoryPage {
   }
   onClick(id:number){
     this.navCtrl.push(ProductPage,{id:id});
+  }
+
+  onCart(id:number){
+    localStorage.setItem('Product_id',id.toString());
+    this.navCtrl.push(LogInPage);
   }
 }

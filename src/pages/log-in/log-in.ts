@@ -6,6 +6,7 @@ import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { UserMaster } from '../../Model/User';
 import { UserDataProvider } from '../../providers/user-data/user-data';
 import { HomePage } from '../home/home';
+import { AboutPage } from '../about/about';
 /**
  * Generated class for the LogInPage page.
  *
@@ -19,20 +20,21 @@ import { HomePage } from '../home/home';
   templateUrl: 'log-in.html',
 })
 export class LogInPage {
-  email:string="";
+  user_name:string="";
   password:string="";
   user:UserMaster;
+  Product_id:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,public _data:UserDataProvider) {
   }
 
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad LogInPage');
   }
 
-  login(){
+  login(id:number,id1:string){
 
-   
-    this.user=new UserMaster(1,'',this.password,'','',1,this.email,'','','','',null,null);
+    this.user=new UserMaster(1,this.user_name,this.password,'','',1,'','','','','',null,null);
     //console.log(this.user);
     this._data.login(this.user).subscribe(
     
@@ -40,14 +42,14 @@ export class LogInPage {
         console.log(data);
        if(data.length==1){
          console.log("hi");
-         localStorage.setItem('Email',this.email);
+         localStorage.setItem('User_name',this.user_name);
        }
-       this.navCtrl.push(HomePage);
+       this.navCtrl.push(AboutPage);
       }
     );
     
       }
-  onClick(){
+  onClick(id:number){
     this.navCtrl.push(SignUpPage);
   }
 

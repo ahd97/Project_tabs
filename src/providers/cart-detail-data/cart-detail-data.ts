@@ -1,6 +1,7 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import "rxjs/Rx";
+import { Row } from 'ionic-angular/components/grid/row';
 
 /*
   Generated class for the CartDetailDataProvider provider.
@@ -29,7 +30,8 @@ export class CartDetailDataProvider {
    }
    updateCart_detail(id, item) {
      let body = JSON.stringify(item);
-     return this.http.put(this.url + id, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
+    //  return this.http.put(this.url + id +"/"+ id1,body, { headers: new HttpHeaders().set('Accept', 'application/json') });
+     return this.http.put(this.url + id ,body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
   }
 
 }

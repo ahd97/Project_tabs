@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Product_by_category</ion-title>
+    <ion-title>Product by category</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -38,7 +38,7 @@
           </button>
         </ion-item-options>
         <ion-item-options side="right">
-          <button ion-button color="secondary">
+          <button ion-button color="secondary" (click)="onCart(item.Product_id)">
             <ion-icon name="cart"></ion-icon>
             cart
           </button>

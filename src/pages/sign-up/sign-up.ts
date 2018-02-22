@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserMaster } from '../../Model/User';
+import { Cart } from '../../Model/Cart';
 import { UserDataProvider } from '../../providers/user-data/user-data';
-import { HomePage } from '../home/home';
+import { CartDataProvider } from '../../providers/cart-data/cart-data';
+import { Cart_detail } from '../../Model/Cart_detail';
+import { CartDetailDataProvider } from '../../providers/cart-detail-data/cart-detail-data';
+import { Product } from '../../Model/Product';
+import { AboutPage } from '../about/about';
 /**
  * Generated class for the SignUpPage page.
  *
@@ -28,18 +33,22 @@ export class SignUpPage {
   public address:string;
   public dob:string;
   public role_id:number;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public _data:UserDataProvider) {
+  public Product_id:number;
+  public cart_id:number;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public _data:UserDataProvider,public _data1:CartDataProvider,public _cartdetail:CartDetailDataProvider) {
   }
 
   ionViewDidLoad() {
+  
+    
     console.log('ionViewDidLoad SignUpPage');
   }
   onAdd() {
     this._data.addUsers(new UserMaster(0, this.user_name,this.password,this.security_q,this.security_a,this.ph_no,this.e_mail,this.first_name,this.last_name,this.address,this.dob,3,"abc")).subscribe(
 
       (data:any) => {
-        this.navCtrl.push(HomePage);
-        console.log(data);
+        localStorage.setItem('User_name',this.user_name);
+        console.log(localStorage.getItem('User_name'));
       }, function (err) {
         console.log(err);
       },
@@ -47,6 +56,16 @@ export class SignUpPage {
 
       }
     );
-   
+   this._data1.addCart(new Cart(0,this.user_name)).subscribe(
+     (data:any)=>{
+       console.log(data);
+     },function(err){
+       console.log(err);
+     },
+     function(){
+
+     }
+   );
+   this.navCtrl.push(AboutPage);
   }
 }

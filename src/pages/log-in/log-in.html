@@ -18,8 +18,8 @@
     <ion-list>
 
       <ion-item>
-          <ion-label floating for="login-username">E-mail</ion-label>
-        <ion-input [(ngModel)]="email" id="login-username" type="text" name="loginUsername"></ion-input>
+          <ion-label floating for="login-username">User_name</ion-label>
+        <ion-input [(ngModel)]="user_name" id="login-username" type="text" name="loginUsername"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -29,10 +29,13 @@
       </ion-item>
 
     </ion-list>
+    
     <ion-list>
-        <button ion-button color="light" (click)="login()">Submit</button>
-      <button ion-button color="light" (click)="onClick()">Sign up</button>
+      <ion-item>
+      <button ion-button color="light" (click)="login(Product_id,user_name)">Submit</button>
+      <button ion-button color="light" (click)="onClick(Product_id)">Sign up</button>
       <button ion-button color="light" (click)="forgotPassword()">Forgot Password</button>
+    </ion-item>
     </ion-list>
 
       </form>

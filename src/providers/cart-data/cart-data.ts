@@ -12,8 +12,12 @@ import "rxjs/Rx";
 @Injectable()
 export class CartDataProvider {
   url: string = "http://localhost:3000/cart/";
+  url1:string="http://localhost:3000/cart_id/";
   constructor(public http: HttpClient) {
     console.log('Hello CartDataProvider Provider');
+  }
+  getCartidByUsername(id){
+    return this.http.get(this.url1 + id);
   }
   getAllCart() {
     return this.http.get(this.url);

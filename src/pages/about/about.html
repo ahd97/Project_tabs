@@ -1,11 +1,26 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+     Cart
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
+ 
+  <ion-item *ngFor="let item of products">
+    <ion-card>
+      <img src="http://localhost:3000/{{item.Path}}" height="150" width="120"/>
+      <div class="card-title">{{item.Product_name}}</div>
+      <div class="card-subtitle">category</div>
+    </ion-card>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Quantity</ion-label>
+    <ion-input type="number" name="qty" id="qty" min="1" max="150" [(ngModel)]="qty" value="1">1</ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="onUpdate()" >Buy Now</button>
+  </ion-item>
+ 
 </ion-content>
