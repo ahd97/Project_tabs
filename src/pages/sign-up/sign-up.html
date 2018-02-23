@@ -14,67 +14,84 @@
 
 
 <ion-content padding>
-  <form>
-    <ion-list>
-
-      <ion-item>
-        <ion-label floating>User Name</ion-label>
-        <ion-input type="text" name="user_name" id="user_name" [(ngModel)]="user_name" placeholder="User Name"></ion-input>
-
+  <form #signupForm="ngForm" novalidate>
+		<ion-list >
+			<ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input [(ngModel)]="user_name" name="user_name" type="text" #id="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
       </ion-item>
+      <p ion-text [hidden]="id.valid || submitted == false" color="danger" padding-left>
+        Username is required
+      </p>
 
       <ion-item>
         <ion-label floating>Password</ion-label>
-        <ion-input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password"></ion-input>
-
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Security Question</ion-label>
-        <ion-select name="security_q" id="security_q" [(ngModel)]="security_q">
-          <ion-option>Pet's Name</ion-option>
-          <ion-option>Favourite Comic Hero</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Security Answer</ion-label>
-        <ion-input type="text" name="security_a" id="security_a" [(ngModel)]="security_a" placeholder="Security Answer">
+        <ion-input [(ngModel)]="password" name="password" type="password" #id1="ngModel" required>
         </ion-input>
       </ion-item>
+      <p ion-text [hidden]="id1.valid || submitted == false" color="danger" padding-left>
+        Password is required
+      </p>
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input [(ngModel)]="e_mail" name="e_mail" type="email" #id4="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <p ion-text [hidden]="id4.valid || submitted == false" color="danger" padding-left>
+        E-mail is required
+      </p>
+      
       <ion-item>
         <ion-label floating>Phone Number</ion-label>
-        <ion-input type="number" name="ph_no" id="ph_no" [(ngModel)]="ph_no" placeholder="Phone Number">
+        <ion-input [(ngModel)]="ph_no" name="ph_no" type="number" #id6="ngModel" required>
         </ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label floating>E-Mail</ion-label>
-        <ion-input type="email" name="e_mail" id="e_mail" [(ngModel)]="e_mail" placeholder="E-Mail">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>First Name</ion-label>
-        <ion-input type="text" name="first_name" id="first_name" [(ngModel)]="first_name" placeholder="First Name">
-        </ion-input>
-      </ion-item>
+      <p ion-text [hidden]="id1.valid || submitted == false" color="danger" padding-left>
+        Phone Number is required
+      </p>
 
-      <ion-item>
-        <ion-label floating>Last Name</ion-label>
-        <ion-input type="text" name="last_name" id="last_name" [(ngModel)]="last_name" placeholder="Last Name">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Address</ion-label>
-        <ion-input type="text" name="address" id="address" [(ngModel)]="address" placeholder="Address">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>DOB</ion-label>
-        <ion-input type="text" name="dob" id="dob" [(ngModel)]="dob" placeholder="DOB">
-        </ion-input>
-      </ion-item>
-      <button ion-button color="light" (click)="onAdd()">Submit</button>
-    </ion-list>
-  </form>
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input [(ngModel)]="first_name" name="first_name" type="text" #id2="ngModel" required>
+      </ion-input>
+    </ion-item>
+    <p ion-text [hidden]="id2.valid || submitted == false" color="danger" padding-left>
+      First Name is required
+    </p>
+  
+
+  <ion-item>
+    <ion-label floating>Last Name</ion-label>
+    <ion-input [(ngModel)]="last_name" name="last_name" type="text" #id3="ngModel" required>
+    </ion-input>
+  </ion-item>
+  <p ion-text [hidden]="id3.valid || submitted == false" color="danger" padding-left>
+    Last Name is required
+  </p>
+
+
+
+<ion-item>
+  <ion-label floating>Address</ion-label>
+  <ion-input [(ngModel)]="address" name="address" type="text" #id5="ngModel" required>
+  </ion-input>
+</ion-item>
+<p ion-text [hidden]="id5.valid || submitted == false" color="danger" padding-left>
+  Address is required
+</p>
+
+<ion-item>
+  <ion-label>DOB</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="dob" name="dob" id="dob" required></ion-datetime>
+</ion-item>
+</ion-list>
+
+		<div padding>
+			<button ion-button (click)="onAdd(signupForm)" type="submit" block>Create</button>
+		</div>
+	</form>
+
 
 </ion-content>

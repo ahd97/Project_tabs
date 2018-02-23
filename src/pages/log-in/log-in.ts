@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
@@ -23,7 +23,7 @@ export class LogInPage {
   user_name:string="";
   password:string="";
   user:UserMaster;
-  Product_id:number;
+  submitted = false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public _data:UserDataProvider) {
   }
 
@@ -32,8 +32,9 @@ export class LogInPage {
     console.log('ionViewDidLoad LogInPage');
   }
 
-  login(id:number,id1:string){
-
+  onLogin(form: NgForm) {
+    this.submitted = true;
+    if (form.valid) {
     this.user=new UserMaster(1,this.user_name,this.password,'','',1,'','','','','',null,null);
     //console.log(this.user);
     this._data.login(this.user).subscribe(
@@ -43,13 +44,15 @@ export class LogInPage {
        if(data.length==1){
          console.log("hi");
          localStorage.setItem('User_name',this.user_name);
+         console.log(this.user);
        }
        this.navCtrl.push(AboutPage);
       }
     );
     
       }
-  onClick(id:number){
+    }
+    onSignup(){
     this.navCtrl.push(SignUpPage);
   }
 

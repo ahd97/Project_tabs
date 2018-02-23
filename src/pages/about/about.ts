@@ -33,9 +33,11 @@ export class AboutPage {
 
   }
   ionViewDidLoad(){
+
  this.Product_id=parseInt( localStorage.getItem('Product_id'));
  this.id=parseInt( localStorage.getItem('Product_id'));
  this.user_name=localStorage.getItem('User_name');
+ console.log(this.user_name);
   this._data.getProductById(this.Product_id).subscribe((data: Product[])=>{
     this.products=data;
 

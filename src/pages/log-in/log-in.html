@@ -14,29 +14,36 @@
 
 
 <ion-content padding>
-  <form>
-    <ion-list>
 
-      <ion-item>
-          <ion-label floating for="login-username">User_name</ion-label>
-        <ion-input [(ngModel)]="user_name" id="login-username" type="text" name="loginUsername"></ion-input>
-      </ion-item>
-
-      <ion-item>
-          <ion-label floating for="login-password">Password</ion-label>
-        <ion-input [(ngModel)]="password" id="login-password" type="password" name="loginPassword"></ion-input>
-        
-      </ion-item>
-
-    </ion-list>
+      <form #loginForm="ngForm" novalidate>
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input [(ngModel)]="user_name" name="user_name" type="text" #id="ngModel" spellcheck="false" autocapitalize="off"
+              required>
+            </ion-input>
+          </ion-item>
+          <p ion-text [hidden]="id.valid || submitted == false" color="danger" padding-left>
+            Username is required
+          </p>
     
-    <ion-list>
-      <ion-item>
-      <button ion-button color="light" (click)="login(Product_id,user_name)">Submit</button>
-      <button ion-button color="light" (click)="onClick(Product_id)">Sign up</button>
-      <button ion-button color="light" (click)="forgotPassword()">Forgot Password</button>
-    </ion-item>
-    </ion-list>
-
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input [(ngModel)]="password" name="password" type="password" #id1="ngModel" required>
+            </ion-input>
+          </ion-item>
+          <p ion-text [hidden]="id1.valid || submitted == false" color="danger" padding-left>
+            Password is required
+          </p>
+        </ion-list>
+    
+        <ion-row responsive-sm>
+          <ion-col>
+            <button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button (click)="onSignup()" color="light" block>Signup</button>
+          </ion-col>
+        </ion-row>
       </form>
 </ion-content>
